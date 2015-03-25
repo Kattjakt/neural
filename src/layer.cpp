@@ -1,6 +1,5 @@
 #include "layer.hpp"
 
-
 namespace NN {
 	Layer::Layer(unsigned size) {
 		for (int i = 0; i < size; i++) {

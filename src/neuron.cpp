@@ -37,9 +37,4 @@ namespace NN {
 		this->state = sum;
 		return sum;
 	}
-
-	void Neuron::Gate() {}
-	void Neuron::Propagate(float rate, float target) {
-		// TODO
-	}
 }

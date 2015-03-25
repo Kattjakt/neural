@@ -13,7 +13,6 @@ namespace NN {
 	
 	class Neuron {
 	private:
-		std::string label = "";
 		Squash squash = Squash::ABS;
 		float state = 0.0f;
 		float bias = 0.0f;
@@ -38,10 +37,7 @@ namespace NN {
 
 	public:
 		Neuron::Neuron();		
-		void SetLabel(std::string label) {this->label = label; }
-		void Gate();
 		void Project(Neuron &n);
-		void Propagate(float rate, float target);
 		float GetState() { return this->state; }
 		float Activate(float n);
 		float Activate();

@@ -14,9 +14,9 @@ namespace NN {
 	class Neuron {
 	private:
 		std::string label = "";
-		Squash squash	  = Squash::ABS;
-		float state		  = 0.0f;
-		float bias		  = 0.0f;
+		Squash squash = Squash::ABS;
+		float state = 0.0f;
+		float bias = 0.0f;
 
 		typedef struct Connection_t {
 			Neuron *conn;

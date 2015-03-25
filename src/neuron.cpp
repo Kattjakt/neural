@@ -40,9 +40,6 @@ namespace NN {
 
 	void Neuron::Gate() {}
 	void Neuron::Propagate(float rate, float target) {
-		float error = 0.0f;
-		for (auto& v : this->Connections.inputs) {
-			// TODO
-		}
+		// TODO
 	}
 }

@@ -1,29 +1,17 @@
 #include <iostream>
 #include <time.h>
-#include "neuron.hpp"
+#include "layer.hpp"
 
 int main(int argc, char *argv[]) {
-	srand(time(NULL));
+	NN::Layer input(4);
+	NN::Layer hidden(6);
+	NN::Layer output(2);
 
-	NN::Neuron A, B;
-	A.Project(B);	
-
-	A.SetLabel("A");
-	B.SetLabel("B");
-
-	std::cout << A.Activate(0.5) << std::endl; 
-	std::cout << B.Activate() << std::endl;
-
-	/*
-		for (int i = 0; i < 20000; i++) {
-			A.Activate(1);
-			B.Activate();
-			B.Propagate(0.3f, 0.0f);
-		}
-
-		A.Activate(1);
-		std::cout << "B: " << B.Activate() << std::endl;
-	*/
+	input.Project(hidden);
+	hidden.Project(output);
+	
+	input.Activate(5.0f);
+	output.Activate();
 
 	getchar();
 

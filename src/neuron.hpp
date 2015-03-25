@@ -8,15 +8,15 @@
 
 namespace NN {
 	enum Squash {
-		LOGISTIC, TANH, IDENTITY, HLIM
+		ABS, SIG
 	};
 	
 	class Neuron {
 	private:
 		std::string label = "";
-		Squash _squash	  = Squash::TANH;
-		float _state	  = 0.0f;
-		float _bias		  = 0.0f;
+		Squash squash	  = Squash::ABS;
+		float state		  = 0.0f;
+		float bias		  = 0.0f;
 
 		typedef struct Connection_t {
 			Neuron *conn;
@@ -36,18 +36,13 @@ namespace NN {
 			float gated			 = 0.0f;
 		} Error;
 
-		
-
 	public:
-		Neuron::Neuron();
-
-		float GetState() { return _state; }
-
+		Neuron::Neuron();		
 		void SetLabel(std::string label) {this->label = label; }
-		
 		void Gate();
 		void Project(Neuron &n);
 		void Propagate(float rate, float target);
+		float GetState() { return this->state; }
 		float Activate(float n);
 		float Activate();
 	};

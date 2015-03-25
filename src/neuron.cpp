@@ -7,34 +7,34 @@ float frand() {
 
 namespace NN {
 	Neuron::Neuron() {
-		this->_bias = frand() * 0.2f - 0.1f;
-		std::cout << this->_bias;
+		this->bias = frand() * 0.2f - 0.1f;
 	}
 	
-	
 	void Neuron::Project(Neuron &n) {
-		n.Connections.inputs.push_back({this, 0});
+		n.Connections.inputs.push_back({this, frand()});
 	}
 		
 	float Neuron::Activate(float n) {
-		this->_state = n;
+		this->state = n;
 		return n;
 	}
 
 	float Neuron::Activate() {
-		float sum = 0.0f;
-		
+		float sum = this->bias;
 		for (auto& v : this->Connections.inputs) {
-			sum += v.conn->GetState();
+			sum += v.conn->state * v.weight;
 		}
 
-		switch(this->_squash) {
-		case Squash::TANH: 
+		switch(this->squash) {
+		case Squash::ABS: 
 			sum = sum / (1 + abs(sum));		
+			break;
+		case Squash::SIG:
+			sum = 1 / (1 + pow(2.71828, (sum * -1)));
 			break;
 		}
 
-		this->_state = sum;
+		this->state = sum;
 		return sum;
 	}
 
@@ -42,8 +42,7 @@ namespace NN {
 	void Neuron::Propagate(float rate, float target) {
 		float error = 0.0f;
 		for (auto& v : this->Connections.inputs) {
-			//error += v->Error.responsibility;
-			// error += v.weight /* *magnitudee? */;
+			// TODO
 		}
 	}
 }

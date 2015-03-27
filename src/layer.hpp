@@ -5,13 +5,13 @@
 
 namespace NN {
 	class Layer {
-	private:
+	public:
 		std::vector<Neuron*> neurons; 
 
 	public:
 		Layer::Layer(unsigned size);
 		void Project(Layer &layer);
 		void Activate(float n);
-		void Activate();
+		std::vector<float> Activate();
 	};
 }

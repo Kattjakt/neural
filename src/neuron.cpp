@@ -30,7 +30,7 @@ namespace NN {
 			sum = sum / (1 + abs(sum));		
 			break;
 		case Squash::SIG:
-			sum = 1 / (1 + pow(2.71828, (sum * -1)));
+			sum = (1 / (1 + pow(2.71828, (sum * -1)))) /*+ this->bias*/;
 			break;
 		}
 

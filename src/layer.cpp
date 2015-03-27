@@ -21,9 +21,11 @@ namespace NN {
 		}
 	}
 
-	void Layer::Activate() {
+	std::vector<float> Layer::Activate() {
+		std::vector<float> results;
 		for (auto& v : this->neurons) {
-			std::cout << v->Activate() << std::endl;
+			results.push_back(v->Activate());
 		}
+		return results;
 	}
 }

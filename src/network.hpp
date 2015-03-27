@@ -15,6 +15,7 @@ namespace NN {
 			NN::Layer &output
 		);
 
+		void Activate(bool print = false);
 		void Activate(float n);
 		void Propagate(float target);
 	};

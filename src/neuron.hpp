@@ -12,7 +12,7 @@ namespace NN {
 	};
 	
 	class Neuron {
-	private:
+	public: // so sorry
 		Squash squash = Squash::ABS;
 		float state = 0.0f;
 		float bias = 0.0f;
